@@ -161,12 +161,11 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": null
+        "value": "postgresql://postgres:55tt@139.59.58.150:5432/jpay-ecommerce?schema=public"
       }
     }
   },
