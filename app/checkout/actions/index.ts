@@ -26,3 +26,13 @@ export async function getPaymentURL(amount: number) {
   });
   return response.data.data.checkout_url;
 }
+
+export const getOrders = async () => {
+  const orders = await prisma.order.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    take: 10,
+  });
+  return orders;
+};

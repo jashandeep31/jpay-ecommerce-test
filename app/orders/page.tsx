@@ -1,16 +1,11 @@
 import { Order } from "@/generated/prisma";
 import { prisma } from "@/lib/db";
 import React from "react";
+import { getOrders } from "../checkout/actions";
 
 export const dynamic = "force-dynamic";
-
 const page = async () => {
-  const orders = await prisma.order.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    take: 10,
-  });
+  const orders = await getOrders();
   return (
     <div className="container mx-auto px-4 py-8">
       <header className="mb-8">
