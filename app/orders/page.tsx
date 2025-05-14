@@ -3,9 +3,12 @@ import { prisma } from "@/lib/db";
 import React from "react";
 
 const getOrders = async () => {
-  const response = await fetch("http://localhost:3003/api/orders", {
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/orders`,
+    {
+      cache: "no-store",
+    }
+  );
   const data = await response.json();
   return data;
 };
