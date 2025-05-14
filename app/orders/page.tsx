@@ -3,6 +3,10 @@ import { prisma } from "@/lib/db";
 import React from "react";
 import { getOrders } from "../checkout/actions";
 
+// Add dynamic configuration
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const page = async () => {
   const orders = await getOrders();
   return (
