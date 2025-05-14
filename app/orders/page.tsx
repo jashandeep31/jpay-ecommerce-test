@@ -24,6 +24,7 @@ const page = async () => {
             <th className="border border-gray-200">S.no</th>
             <th className="border border-gray-200">Order ID</th>
             <th className="border border-gray-200">Amount</th>
+            <th className="border border-gray-200">Created At</th>
             <th className="border border-gray-200">Status</th>
           </thead>
           <tbody>
@@ -34,6 +35,9 @@ const page = async () => {
                 <td className="border border-gray-200">{order.amount}</td>
                 <td className="border border-gray-200">
                   {order.paymentStatus}
+                </td>
+                <td className="border border-gray-200">
+                  {order.createdAt.toLocaleDateString()}
                 </td>
               </tr>
             ))}
