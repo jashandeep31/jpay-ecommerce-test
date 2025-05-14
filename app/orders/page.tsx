@@ -2,8 +2,6 @@ import { Order } from "@/generated/prisma";
 import { prisma } from "@/lib/db";
 import React from "react";
 
-export const dynamic = "force-dynamic";
-
 const page = async () => {
   const orders = await prisma.order.findMany({
     orderBy: {
