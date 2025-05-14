@@ -1,12 +1,14 @@
 import { Order } from "@/generated/prisma";
 import { prisma } from "@/lib/db";
 import React from "react";
-import { getOrders } from "../checkout/actions";
 
-// Add dynamic configuration
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
+const getOrders = async () => {
+  const response = await fetch("http://localhost:3003/api/orders", {
+    cache: "no-store",
+  });
+  const data = await response.json();
+  return data;
+};
 const page = async () => {
   const orders = await getOrders();
   return (
@@ -37,7 +39,7 @@ const page = async () => {
                   {order.paymentStatus}
                 </td>
                 <td className="border border-gray-200">
-                  {order.createdAt.toLocaleDateString()}
+                  {new Date(order.createdAt).toLocaleDateString()}
                 </td>
               </tr>
             ))}
